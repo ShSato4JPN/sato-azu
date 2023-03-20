@@ -9,7 +9,8 @@
     "lint": "next lint",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts --namespace Contentful"
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts --namespace Contentful",
+    "prebuild": "npm run contentful-typescript-codegen"
   },
   "dependencies": {
     "@types/node": "18.15.3",
