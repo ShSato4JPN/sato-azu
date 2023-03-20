@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts --namespace Contentful"
   },
   "dependencies": {
     "@types/node": "18.15.3",
@@ -22,8 +23,12 @@
   "devDependencies": {
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
+    "@next/env": "13.2.4",
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
+    "contentful": "9.3.5",
+    "contentful-management": "10.30.0",
+    "contentful-typescript-codegen": "3.4.0",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "eslint-config-prettier": "8.7.0",
