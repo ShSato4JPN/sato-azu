@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { SatoOrAzuData } from "@/types/data";
+import type { SatoOrAzuData } from "@/types/data.d";
 
 type NestedArray<T> = Array<T | NestedArray<T>>;
 
