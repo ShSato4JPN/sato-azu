@@ -3,7 +3,7 @@ import type { SatoOrAzuData } from "@/types/data.d";
 
 type NestedArray<T> = Array<T | NestedArray<T>>;
 
-export type StylesTemplate<> = {
+export type StylesTemplate = {
   [key: string]: NestedArray<string>;
 };
 
