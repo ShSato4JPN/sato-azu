@@ -1,6 +1,8 @@
 export type Empty = "";
 
-export type SatoOrAzuData = "satoshi" | "azusa";
+export type SiteContents = "profile";
+
+export type SatoOrAzu = "satoshi" | "azusa";
 
 export type ProfileTitleData = {
   nameKanji: string;
@@ -12,11 +14,15 @@ export type ProfileAboutMeData = {
 };
 
 export type ProfileHobbyData = {
-  hobby: string;
+  descriptions: string[];
 };
 
-export type ProfileGuideData = {
+export type ProfileTimelineData = {
   guide: string;
+};
+
+export type ProfileMessageData = {
+  guide: message;
 };
 
 export type ProfileData = {
@@ -25,12 +31,15 @@ export type ProfileData = {
   profileTitle: ProfileTitleData;
   profileAboutme: ProfileAboutMeData;
   profileHobby: ProfileHobbyData;
-  profileGuide: ProfileGuideData;
+  profileTimeline: ProfileTimelineData;
+  profileMessage: ProfileMessage;
 };
 
 export type ImagesData = {
+  title: string;
   url: string;
   fileName: string;
+  description: string;
   size: {
     width: number;
     height: number;
