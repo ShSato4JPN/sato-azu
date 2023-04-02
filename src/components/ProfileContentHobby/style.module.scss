@@ -1,0 +1,69 @@
+.wrapper {
+  min-height: var(--profile-content-height);
+  max-width: var(--profile-max-width);
+}
+
+.inner {
+  margin: 45px 10px;
+
+  @media screen and (min-width: 980px) {
+    margin: 65px 50px;
+  }
+}
+
+.heading {
+  text-align: center;
+  background-color: orange;
+  font-size: 2rem;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+
+  @media screen and (min-width: 980px) {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+  }
+}
+
+.hobbyCard {
+  display: fex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+  background-color: rgb(229 229 229 / 58.6%);
+  overflow: hidden;
+  border-radius: 3%;
+
+  @media screen and (min-width: 980px) {
+    width: 400px;
+  }
+}
+
+.hobbyCardTitle {
+  margin: 5px 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.hobbyCardImage {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5;
+}
+
+.hobbyCardDescription {
+  padding: 5px;
+  line-height: 3rem;
+  font-size: 1.7rem;
+}

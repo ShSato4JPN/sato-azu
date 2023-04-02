@@ -1,9 +1,9 @@
 "use client";
 import type { ReactNode } from "react";
 import React from "react";
-import type { SatoOrAzuData } from "@/types/data";
+import type { SatoOrAzu } from "@/types/data";
 
-export type ProfileUserData = SatoOrAzuData;
+export type ProfileUserData = SatoOrAzu;
 
 export const ProfileUserContext = React.createContext<ProfileUserData | null>(
   null

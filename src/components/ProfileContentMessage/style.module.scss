@@ -1,0 +1,12 @@
+.wrapper {
+  min-height: var(--profile-content-height);
+  max-width: var(--profile-max-width);
+}
+
+.inner {
+  margin: 45px 10px;
+
+  @media screen and (min-width: 980px) {
+    margin: 65px 50px;
+  }
+}

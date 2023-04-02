@@ -1,0 +1,13 @@
+.mainContainer {
+  height: var(--profile-content-height);
+  width: var(--profile-content-width);
+  margin: 3px;
+  overflow: scroll;
+  z-index: 1;
+}
+
+.screenBlockContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

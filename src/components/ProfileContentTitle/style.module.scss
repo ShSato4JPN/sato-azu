@@ -1,0 +1,55 @@
+.wrapper {
+  height: var(--profile-content-height);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper-color-satoshi {
+  background-color: rgb(192 212 255 / 30%);
+}
+
+.wrapper-color-azusa {
+  background-color: rgb(207 255 192 / 30%);
+}
+
+.inner {
+  text-align: center;
+}
+
+.helloMessage {
+  position: relative;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 0.2em;
+  font-size: 1.5rem;
+  background-color: #f05b5b;
+}
+
+.helloMessage::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: 2px;
+  bottom: 2px;
+  border-left: 20px solid #f05b5b;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transform: rotate(45deg);
+}
+
+.nameKanji {
+  font-size: 10rem;
+}
+
+.nameAlphabet {
+  font-size: 5rem;
+}

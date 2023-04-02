@@ -1,0 +1,14 @@
+.wrapper {
+  min-height: var(--profile-content-height);
+  max-width: var(--profile-max-width);
+  width: 100%;
+  background-color: rgb(200 42 10 / 60.9%);
+}
+
+.inner {
+  margin: 45px 10px;
+
+  @media screen and (min-width: 980px) {
+    margin: 65px 50px;
+  }
+}

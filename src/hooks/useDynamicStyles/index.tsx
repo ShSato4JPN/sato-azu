@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { SatoOrAzuData } from "@/types/data.d";
+import type { SatoOrAzu } from "@/types/data.d";
 
 type NestedArray<T> = Array<T | NestedArray<T>>;
 
@@ -9,7 +9,7 @@ export type StylesTemplate = {
 
 type ConvertedStylesFormat = Record<string, string>;
 
-function useRefStyles<T>(name: SatoOrAzuData, styles: StylesTemplate) {
+function useDynamicStyles<T>(name: SatoOrAzu, styles: StylesTemplate) {
   const [refStyles, setRefStyles] = useState<ConvertedStylesFormat>({});
   const [isStylesProcessing, setIsStylesProcessing] = useState<boolean>(true);
 
@@ -30,4 +30,4 @@ function useRefStyles<T>(name: SatoOrAzuData, styles: StylesTemplate) {
 
   return { isStylesProcessing, refStyles: refStyles as T };
 }
-export default useRefStyles;
+export default useDynamicStyles;
