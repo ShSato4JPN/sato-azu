@@ -20,8 +20,6 @@ function ProfileHobby({ data, images }: ProfileHobbyProps): JSX.Element {
     images,
   });
 
-  const testText = "Test  \nTest  \nTest";
-
   const hobbyContents = useMemo(
     () =>
       Object.keys(refImages)

@@ -17,12 +17,22 @@ export type ProfileHobbyData = {
   descriptions: string[];
 };
 
+export type Affiliation = "school" | "university" | "company";
+
+export type TimelineData = {
+  title: string;
+  start: string;
+  end: string;
+  type: Affiliation;
+  description: string;
+};
+
 export type ProfileTimelineData = {
-  guide: string;
+  timeline: TimelineData[];
 };
 
 export type ProfileMessageData = {
-  guide: message;
+  message: string;
 };
 
 export type ProfileData = {

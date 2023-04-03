@@ -1,9 +1,10 @@
 .wrapper {
   min-height: var(--profile-content-height);
-  max-width: var(--profile-max-width);
+  background-color: rgb(255 166 0 / 57.2%);
 }
 
 .inner {
+  max-width: var(--profile-max-width);
   margin: 45px 10px;
 
   @media screen and (min-width: 980px) {

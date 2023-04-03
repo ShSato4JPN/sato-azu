@@ -1,5 +1,6 @@
 "use client";
 import { useContext } from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { ProfileUserContext } from "../Providers/ProfileUserProvider";
 import styles from "./style.module.scss";
 import type { ProfileMessageData } from "@/types/data";
@@ -14,8 +15,9 @@ function ProfileContentMessage({ data }: ProfileMessageProps): JSX.Element {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
-        <div className={styles.heading}>
-          <h1>Message</h1>
+        <div className={styles.heading}>Message</div>
+        <div className={styles.message}>
+          <ReactMarkdown>{data.message}</ReactMarkdown>
         </div>
       </div>
     </div>
