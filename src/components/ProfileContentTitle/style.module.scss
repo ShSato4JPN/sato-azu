@@ -1,5 +1,5 @@
 .wrapper {
-  height: var(--profile-content-height);
+  height: calc(100vh);
   width: 100%;
 }
 
@@ -12,20 +12,28 @@
 }
 
 .inner {
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleContent {
   text-align: center;
+  width: 300px;
 }
 
 .helloMessage {
   position: relative;
-  padding: 10px;
-  width: 80px;
+  padding: 3px;
+  width: 100px;
   height: 80px;
   line-height: 80px;
   border-radius: 50%;
   text-align: center;
   color: #fff;
   letter-spacing: 0.2em;
-  font-size: 1.5rem;
+  font-size: 2rem;
   background-color: #f05b5b;
 }
 
