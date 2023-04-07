@@ -15,15 +15,15 @@
   "dependencies": {
     "@react-icons/all-files": "4.1.0",
     "@types/node": "18.15.11",
-    "@types/react": "18.0.32",
+    "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
     "install": "0.13.0",
-    "next": "13.2.4",
-    "npm": "9.6.3",
+    "next": "13.3.0",
+    "npm": "9.6.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swr": "2.1.2",
-    "typescript": "5.0.3"
+    "typescript": "5.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "17.5.1",
