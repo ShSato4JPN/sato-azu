@@ -10,6 +10,12 @@ export type ProfileTitleData = {
 };
 
 export type ProfileAboutMeData = {
+  nameKanji: string;
+  nameAlphabet: string;
+  blood: string;
+  birthday: string;
+  job: string;
+  work: string;
   aboutme: string;
 };
 
