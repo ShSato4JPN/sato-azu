@@ -1,10 +1,10 @@
 .wrapper {
-  height: calc(100vh);
+  height: var(--profile-content-height);
   width: 100%;
 }
 
 .wrapper-color-satoshi {
-  background-color: rgb(192 212 255 / 30%);
+  background-color: #00e1ffb3;
 }
 
 .wrapper-color-azusa {
@@ -28,13 +28,13 @@
   padding: 3px;
   width: 100px;
   height: 80px;
-  line-height: 80px;
+  line-height: 70px;
   border-radius: 50%;
   text-align: center;
   color: #fff;
   letter-spacing: 0.2em;
   font-size: 2rem;
-  background-color: #f05b5b;
+  background-color: #d2d1d1;
 }
 
 .helloMessage::before {
@@ -45,16 +45,18 @@
   height: 0;
   right: 2px;
   bottom: 2px;
-  border-left: 20px solid #f05b5b;
+  border-left: 20px solid #d2d1d1;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   transform: rotate(45deg);
 }
 
 .nameKanji {
+  color: #fff;
   font-size: 10rem;
 }
 
 .nameAlphabet {
+  color: #fff;
   font-size: 5rem;
 }

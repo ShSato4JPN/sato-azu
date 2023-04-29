@@ -1,6 +1,6 @@
 export type Empty = "";
 
-export type SiteContents = "profile";
+export type SiteContents = "profile" | "lifestyle";
 
 export type SatoOrAzu = "satoshi" | "azusa";
 
@@ -50,6 +50,13 @@ export type ProfileData = {
   profileHobby: ProfileHobbyData;
   profileTimeline: ProfileTimelineData;
   profileMessage: ProfileMessage;
+};
+
+export type ShopsInfomation = {
+  [key: string]: {
+    name: string;
+    map: string;
+  };
 };
 
 export type ImagesData = {

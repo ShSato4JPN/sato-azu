@@ -1,5 +1,5 @@
 .wrapper {
-  height: 100vh;
+  height: var(--profile-content-height);
   background-color: var(--color-brand-main);
   display: flex;
   justify-content: center;

@@ -1,12 +1,15 @@
 "use client";
 import Image from "next/image";
 import { useContext } from "react";
+import { isMobile } from "react-device-detect";
 import { Oval } from "react-loader-spinner";
 import { ProfileUserContext } from "../Providers/ProfileUserProvider";
+import ScrollAnimation from "../ScrollAnimation";
 import styles from "./style.module.scss";
 import useRefImages from "@/hooks/useRefImages";
 import type { ProfileAboutMeData } from "@/types/data.d";
 import type { ImagesData } from "@/types/data.d";
+import "animate.css";
 
 export type ProfileAboutMeProps = {
   data: ProfileAboutMeData;
@@ -28,76 +31,64 @@ function ProfileContentAboutMe({
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
-        <div className={styles.heading}>
-          <h1>About me</h1>
-        </div>
-        <div className={styles.contents}>
-          <div className={styles.contentImage}>
-            {isProcessing ? (
-              <Oval
-                color={ovalColor}
-                secondaryColor="#C0C0C0"
-                strokeWidth={2}
-                strokeWidthSecondary={2}
-                visible={true}
-                height={5}
-                width={5}
-              />
-            ) : (
-              <Image
-                className={styles.profileImage}
-                src={refImages["aboutme-profile-image"].url}
-                width={800}
-                height={800}
-                alt={refImages["aboutme-profile-image"].description}
-              />
-            )}
-          </div>
-          <div className={styles.contetntDescription}>
-            <h2>
-              tExperienced Chief Technology Officer, Developer & Teacher with a
-              <br />
-              demonstrated history of working in the internet industry. Skilled
-              in
-              <br />
-              PHP (Symfony & Laravel frameworks), TDD, continuous integration,
-              <br />
-              WordPress, Linux System Administration, and Application
-              Programming
-              <br />
-              Interfaces. Strong engineering professional with a Licence focused
-              <br />
-              in Web Development from Université Claude Bernard Lyon 1. My
-              <br />
-              favourite stack : Laravel 5, Symfony Flex, PHPUnit, PHPQA,
-              <br />
-              Micro-services, Docker, ReactJS, ReactNative with continuous
-              <br />
-              integration on Gitlab.
-              <br />
-              tExperienced Chief Technology Officer, Developer & Teacher with a
-              <br />
-              demonstrated history of working in the internet industry. Skilled
-              in
-              <br />
-              PHP (Symfony & Laravel frameworks), TDD, continuous integration,
-              <br />
-              WordPress, Linux System Administration, and Application
-              Programming
-              <br />
-              Interfaces. Strong engineering professional with a Licence focused
-              <br />
-              in Web Development from Université Claude Bernard Lyon 1. My
-              <br />
-              favourite stack : Laravel 5, Symfony Flex, PHPUnit, PHPQA,
-              <br />
-              Micro-services, Docker, ReactJS, ReactNative with continuous
-              <br />
-              integration on Gitlab.
-              <br />
-            </h2>
-          </div>
-        </div>
+        <section className={styles.imageSection}>
+          {isProcessing ? (
+            <Oval
+              color={ovalColor}
+              secondaryColor="#C0C0C0"
+              strokeWidth={2}
+              strokeWidthSecondary={2}
+              visible={true}
+              height={5}
+              width={5}
+            />
+          ) : (
+            <Image
+              className={styles.profileImage}
+              src={refImages["aboutme-profile-image"].url}
+              width={800}
+              height={800}
+              alt={refImages["aboutme-profile-image"].description}
+            />
+          )}
+        </section>
+        <section className={styles.detailSection}>
+          <h1 className={styles.sectionTitle}>Details</h1>
+          <ScrollAnimation
+            height={isMobile ? { height: "650px" } : { height: "550px" }}
+            direction="right"
+            rootMargin="-100px"
+            triggerOnce={true}
+          >
+            <div className={styles.detail}>
+              <div className={styles.detailContent}>
+                <div className={styles.detailName}>Name</div>
+                <div className={styles.detailValue}>
+                  <ruby>
+                    {data.nameKanji}
+                    <rt>{data.nameHiragana}</rt>
+                  </ruby>
+                </div>
+              </div>
+              <div className={styles.detailContent}>
+                <div className={styles.detailName}>Birthday</div>
+                <div className={styles.detailValue}>{data.birthday}</div>
+              </div>
+              <div className={styles.detailContent}>
+                <div className={styles.detailName}>Job</div>
+                <div className={styles.detailValue}>{data.job}</div>
+              </div>
+              <div className={styles.detailContent}>
+                <div className={styles.detailName}>Work</div>
+                <div className={styles.detailValue}>{data.work}</div>
+              </div>
+              <div className={styles.detailContent}>
+                <h1 className={styles.detailName}>About</h1>
+                <div className={styles.detailValue}>{data.aboutme}</div>
+              </div>
+            </div>
+          </ScrollAnimation>
+        </section>
       </div>
     </div>
   );

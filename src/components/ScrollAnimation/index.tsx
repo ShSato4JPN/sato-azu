@@ -5,7 +5,7 @@ import "animate.css";
 export type ScrollAnimationProps = {
   children: ReactNode;
   height: Pick<CSSProperties, "height">;
-  direction: "up" | "down" | "left" | "right";
+  direction: "up" | "down" | "left" | "right" | "backInDown";
   rootMargin: string;
   triggerOnce: boolean;
 };
@@ -15,6 +15,7 @@ const animationType = {
   down: "animate__animated animate__bounceInDown",
   left: "animate__animated animate__bounceInLeft",
   right: "animate__animated animate__bounceInRight",
+  backInDown: "animate__animated animate__backInDown",
 };
 
 function ScrollAnimation({
@@ -30,8 +31,6 @@ function ScrollAnimation({
   });
 
   const animateClass = animationType[direction];
-
-  console.log(inView);
 
   return (
     <div ref={ref} style={height}>

@@ -1,9 +1,8 @@
 "use client";
 import Image from "next/image";
-import { useContext } from "react";
 import { useMemo } from "react";
 import ReactMarkdown from "react-markdown";
-import { ProfileUserContext } from "../Providers/ProfileUserProvider";
+import ScrollAnimation from "../ScrollAnimation";
 import styles from "./style.module.scss";
 import useRefImages from "@/hooks/useRefImages";
 import type { ProfileHobbyData, ImagesData } from "@/types/data";
@@ -14,36 +13,44 @@ export type ProfileHobbyProps = {
 };
 
 function ProfileHobby({ data, images }: ProfileHobbyProps): JSX.Element {
-  const name = useContext(ProfileUserContext);
-  const { refImages, isProcessing } = useRefImages({
+  //const name = useContext(ProfileUserContext);
+  const { refImages } = useRefImages({
     content: "hobby",
     images,
   });
 
-  const hobbyContents = useMemo(
+  const hobbyContents = useMemo<JSX.Element[]>(
     () =>
       Object.keys(refImages)
         .sort()
         .map((k, i) => {
           const image = refImages[k];
           return (
-            <div className={styles.hobbyCard} key={image.title}>
-              <div className={styles.hobbyCardImage}>
-                <Image
-                  className={styles.image}
-                  src={image.url}
-                  width={800}
-                  height={800}
-                  alt={image.description}
-                />
+            <ScrollAnimation
+              height={{ height: "550px" }}
+              direction={i % 2 === 0 ? "right" : "left"}
+              rootMargin={"-80px"}
+              triggerOnce={true}
+              key={image.title}
+            >
+              <div className={styles.hobbyCard}>
+                <div className={styles.hobbyCardImage}>
+                  <Image
+                    className={styles.image}
+                    src={image.url}
+                    width={800}
+                    height={800}
+                    alt={image.description}
+                  />
+                </div>
+                <div className={styles.hobbyCardTitle}>
+                  <h1>{data.descriptions[i]}</h1>
+                </div>
+                <div className={styles.hobbyCardDescription}>
+                  <ReactMarkdown>{image.description}</ReactMarkdown>
+                </div>
               </div>
-              <div className={styles.hobbyCardTitle}>
-                <h1>{data.descriptions[i]}</h1>
-              </div>
-              <div className={styles.hobbyCardDescription}>
-                <ReactMarkdown>{image.description}</ReactMarkdown>
-              </div>
-            </div>
+            </ScrollAnimation>
           );
         }) || [],
     [data.descriptions, refImages]
@@ -52,10 +59,10 @@ function ProfileHobby({ data, images }: ProfileHobbyProps): JSX.Element {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
-        <div className={styles.heading}>
-          <h1>My hobbies...</h1>
-        </div>
-        <div className={styles.contents}>{hobbyContents}</div>
+        <section className={styles.hobbiesSection}>
+          <h1 className={styles.sectionTitle}>Hobbies</h1>
+          <div className={styles.contents}>{hobbyContents}</div>
+        </section>
       </div>
     </div>
   );

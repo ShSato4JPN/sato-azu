@@ -1,12 +1,27 @@
 .wrapper {
-  min-height: var(--profile-content-height);
+  width: var(--profile-content-width);
   max-width: var(--profile-max-width);
+  height: var(--profile-content-height);
+  background-color: var(--background-satoshi);
+  color: black;
 }
 
 .inner {
-  margin: 45px 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  font-size: 1.8rem;
+  white-space: pre-wrap;
+  color: #fff;
+  height: 300px;
+  width: 350px;
 
   @media screen and (min-width: 980px) {
-    margin: 65px 50px;
+    width: 500px;
   }
 }

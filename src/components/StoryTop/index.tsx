@@ -69,7 +69,7 @@ const getIconStyle = (type: Affiliation): React.CSSProperties => {
   }
 };
 
-function ProfileContentTimeline({ data }: ProfileTimelineProps): JSX.Element {
+function Story(): JSX.Element {
   const timelineElements = useMemo(
     () =>
       data.timeline.map((d) => {
@@ -90,7 +90,7 @@ function ProfileContentTimeline({ data }: ProfileTimelineProps): JSX.Element {
           </VerticalTimelineElement>
         );
       }),
-    [data.timeline]
+    []
   );
 
   return (
@@ -107,4 +107,4 @@ function ProfileContentTimeline({ data }: ProfileTimelineProps): JSX.Element {
   );
 }
 
-export default ProfileContentTimeline;
+export default Story;

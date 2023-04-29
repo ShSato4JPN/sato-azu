@@ -1,54 +1,96 @@
 .wrapper {
-  min-height: var(--profile-content-height);
-  background-color: rgb(255 166 0 / 57.2%);
+  width: var(--profile-content-width);
+  max-width: var(--profile-max-width);
+  background-color: rgb(36 149 241 / 58%);
+  color: black;
 }
 
 .inner {
-  max-width: var(--profile-max-width);
-  margin: 45px 10px;
-
-  @media screen and (min-width: 980px) {
-    margin: 65px 50px;
-  }
-}
-
-.heading {
-  text-align: center;
-  background-color: orange;
-  font-size: 2rem;
-}
-
-.contents {
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  @media screen and (min-width: 980px) {
-    display: flex;
-    flex-direction: row-reverse;
-  }
+  align-items: center;
+  justify-content: center;
 }
 
-.contentImage {
-  background-color: green;
+.imageSection {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  margin: 10px;
 }
 
 .profileImage {
   border-radius: 50%;
-  border: 5px solid rgb(228 228 228);
-  width: 150px;
-  height: 150px;
+  border: 5px solid rgb(255 255 255);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 26%);
+  width: 180px;
+  height: 180px;
+  margin-bottom: 20px;
 
   @media screen and (min-width: 980px) {
-    width: 360px;
-    height: 360px;
+    width: 250px;
+    height: 250px;
   }
 }
 
-.contetntDescription {
-  background-color: tomato;
+.sectionTitle {
+  margin-bottom: 10px;
+  font-size: 4rem;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+.detailSection {
+  height: 650px;
+
+  @media screen and (min-width: 980px) {
+    width: 800px;
+    height: 550px;
+  }
+}
+
+.detail {
+  margin: 10px;
+  font-size: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 26%);
+  background-color: var(--content-background-color);
+  padding: 10px;
+}
+
+.detailContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  text-align: center;
+
+  .detailName {
+    font-size: 2.5rem;
+    margin: 1px;
+  }
+
+  .detailValue {
+    font-size: 1.8rem;
+    padding: 0.5rem;
+    overflow-wrap: break-word;
+  }
+
+  @media screen and (min-width: 980px) {
+    flex-direction: row;
+    text-align: left;
+
+    .detailName {
+      font-size: 2rem;
+      width: 100px;
+    }
+
+    .detailValue {
+      width: 300px;
+      overflow-wrap: break-word;
+    }
+  }
 }

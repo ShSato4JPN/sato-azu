@@ -1,20 +1,23 @@
 .wrapper {
-  min-height: var(--profile-content-height);
+  width: var(--profile-content-width);
   max-width: var(--profile-max-width);
+  background-color: var(--background-satoshi);
+  color: black;
 }
 
 .inner {
-  margin: 45px 10px;
-
-  @media screen and (min-width: 980px) {
-    margin: 65px 50px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.heading {
+.sectionTitle {
+  margin-bottom: 10px;
+  font-size: 4rem;
+  line-height: 50px;
   text-align: center;
-  background-color: orange;
-  font-size: 2rem;
+  color: white;
 }
 
 .contents {
@@ -22,25 +25,28 @@
   flex-direction: column;
   gap: 20px;
   padding: 10px;
+  height: 1750px;
 
   @media screen and (min-width: 980px) {
     flex-flow: row wrap;
     justify-content: space-evenly;
     gap: 20px;
+    height: 650px;
   }
 }
 
 .hobbyCard {
-  display: fex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
-  background-color: rgb(229 229 229 / 58.6%);
+  background-color: var(--content-background-color);
   overflow: hidden;
   border-radius: 3%;
+  height: 550px;
 
   @media screen and (min-width: 980px) {
     width: 400px;
+    height: 600px;
   }
 }
 
@@ -59,11 +65,10 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 5;
 }
 
 .hobbyCardDescription {
-  padding: 5px;
+  padding: 15px;
   line-height: 3rem;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
 }

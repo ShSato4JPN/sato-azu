@@ -1,7 +1,5 @@
 "use client";
-import { useContext } from "react";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { ProfileUserContext } from "../Providers/ProfileUserProvider";
+import ScrollAnimation from "../ScrollAnimation";
 import styles from "./style.module.scss";
 import type { ProfileMessageData } from "@/types/data";
 
@@ -10,14 +8,19 @@ export type ProfileMessageProps = {
 };
 
 function ProfileContentMessage({ data }: ProfileMessageProps): JSX.Element {
-  const name = useContext(ProfileUserContext);
-
+  //const name = useContext(ProfileUserContext);
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
-        <div className={styles.heading}>Message</div>
-        <div className={styles.message}>
-          <ReactMarkdown>{data.message}</ReactMarkdown>
+        <div className={styles.messageContent}>
+          <ScrollAnimation
+            height={{ height: "300px" }}
+            direction={"backInDown"}
+            rootMargin={"-100px"}
+            triggerOnce={true}
+          >
+            <div className={styles.content}>{data.message}</div>
+          </ScrollAnimation>
         </div>
       </div>
     </div>

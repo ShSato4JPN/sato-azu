@@ -1,14 +1,20 @@
 :root {
-  --color-brand-main: rgb(248 186 87);
-  --background-azusa: rgb(181 255 202);
-  --foreground-azusa: green;
-  --background-satoshi: rgb(152 245 255);
-  --foreground-satoshi: white;
-  --profile-content-height: 100vh;
-  --profile-content-width: 100vw;
   --until-tablet-font-size: 56.25%;
   --from-desktop-font-size: 62.5%;
   --profile-max-width: 1800px;
+  --profile-content-height: 100vh;
+  --profile-content-width: 100vw;
+  --font-color: #353535;
+  --color-brand-main: rgb(248 186 87);
+  --background-satoshi: rgb(36 149 241 / 58%);
+  --background-school-satoshi: rgb(36 149 241 / 58%);
+  --background-university-satoshi: rgb(36 149 241 / 58%);
+  --background-company-satoshi: rgb(36 149 241 / 58%);
+  --background-azusa: rgb(36 149 241 / 58%);
+  --background-school-azusa: rgb(36 149 241 / 58%);
+  --background-university-azusa: rgb(36 149 241 / 58%);
+  --background-company-azusa: rgb(36 149 241 / 58%);
+  --content-background-color: #f4f4f4bc;
 }
 
 html {
@@ -41,10 +47,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

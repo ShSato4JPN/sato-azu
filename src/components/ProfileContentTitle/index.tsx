@@ -34,7 +34,7 @@ function ProfileContentTitle({ data }: ProfileTitleProps): JSX.Element {
     <div className={refStyles.wrapper}>
       <div className={styles.inner}>
         <div className={styles.titleContent}>
-          <div className={styles.helloMessage}>hello</div>
+          <div className={styles.helloMessage}>Hello</div>
           <h1 className={styles.nameKanji}>{nameKanji}</h1>
           <h1 className={styles.nameAlphabet}>{nameAlphabet}</h1>
         </div>

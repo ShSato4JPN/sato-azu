@@ -1,5 +1,4 @@
 "use client";
-
 import styles from "./style.module.scss";
 import "react-vertical-timeline-component/style.min.css";
 

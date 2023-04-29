@@ -24,10 +24,19 @@ function ProfileTop({ name }: ProfileTopProps): JSX.Element {
   //const { refStyles } = useRefStyles<StylesType>(name, stylesTemplate);
   const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    // 画面のチラツキをなくすためローディング画面を表示させる。
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1800);
+  }, []);
+
   const profile = useMemo<ProfileData>(
     () => data?.items.at(0)?.fields.data[name],
     [data?.items, name]
   );
+
+  console.dir(profile);
 
   const images = useMemo<ImagesData[]>(
     () =>
@@ -46,13 +55,6 @@ function ProfileTop({ name }: ProfileTopProps): JSX.Element {
         .flat() || [],
     [data]
   );
-
-  useEffect(() => {
-    // 画面のチラツキをなくすためローディング画面を表示させる。
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1800);
-  }, []);
 
   return (
     <ProfileUserProvider value={name}>
