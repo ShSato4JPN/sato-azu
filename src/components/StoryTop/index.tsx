@@ -3,12 +3,15 @@ import { FaChurch } from "@react-icons/all-files/fa/FaChurch";
 import { ImMan } from "@react-icons/all-files/im/ImMan";
 import { ImManWoman } from "@react-icons/all-files/im/ImManWoman";
 import { ImWoman } from "@react-icons/all-files/im/ImWoman";
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import useSWR from "swr";
+import AnimationContainer from "../AnimationContainer";
+import LoadingAnimation from "../LoadingAnimation";
+import MotionContainer from "../MotionContainer";
 import TimelineContent from "../TimelineContent";
 import styles from "./style.module.scss";
 import "react-vertical-timeline-component/style.min.css";
@@ -41,7 +44,7 @@ const getCocontentStyle = (type: StoryType): React.CSSProperties => {
         borderRadius: "10px",
       };
     case "satoazu":
-      return { background: "#f1a67e", color: "#fff", borderRadius: "10px" };
+      return { background: "#f78f69", color: "#fff", borderRadius: "10px" };
     case "marry":
       return {
         background: "#f7d668",
@@ -79,11 +82,18 @@ const getIconStyle = (type: StoryType): React.CSSProperties => {
 
 function Story(): JSX.Element {
   const { data } = useSWR<GetContentsData>(endpointStory);
-
+  const [isLoading, setIsLoading] = useState(true);
   const timeline = useMemo<StoryData>(
     () => data?.items.at(0)?.fields.data["timeline"],
     [data?.items]
   );
+
+  useEffect(() => {
+    // 画面のチラツキをなくすためローディング画面を表示させる。
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1800);
+  }, []);
 
   const timelineElements = useMemo(
     () =>
@@ -108,16 +118,29 @@ function Story(): JSX.Element {
   );
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.inner}>
-        <section className={styles.timelineSection}>
-          <h1 className={styles.sectionTitle}>Timeline</h1>
-          <VerticalTimeline lineColor="linear-gradient(#f1a67e, #f7d668)">
-            {timelineElements}
-          </VerticalTimeline>
-        </section>
-      </div>
-    </div>
+    <>
+      {isLoading ? (
+        <LoadingAnimation />
+      ) : (
+        <MotionContainer>
+          <AnimationContainer>
+            <main className={styles.mainContainer}>
+              <div className={styles.screenBlockContainer}>
+                <div className={styles.wrapper}>
+                  <div className={styles.inner}>
+                    <section className={styles.timelineSection}>
+                      <VerticalTimeline lineColor="linear-gradient(#f1a67e, #f7d668)">
+                        {timelineElements}
+                      </VerticalTimeline>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </AnimationContainer>
+        </MotionContainer>
+      )}
+    </>
   );
 }
 
