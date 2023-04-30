@@ -62,8 +62,8 @@ function StroyTop(): JSX.Element {
       const shopMap = shopsInfo[d.title].map;
       return (
         <div className={styles.shopContent} key={shopName}>
-          <h1 className={styles.shopName}>{shopName}</h1>
           <div className={styles.shopDetails}>
+            <h1 className={styles.shopName}>{shopName}</h1>
             <div className={styles.imageContent}>
               <div className={styles.shopImage}>
                 <Image
