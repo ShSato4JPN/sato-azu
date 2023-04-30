@@ -32,7 +32,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.6.1",
     "@commitlint/config-conventional": "17.6.1",
-    "@next/env": "13.3.1",
+    "@next/env": "13.3.2",
     "@types/react-vertical-timeline-component": "3.3.3",
     "@typescript-eslint/eslint-plugin": "5.59.1",
     "@typescript-eslint/parser": "5.59.1",
@@ -40,7 +40,7 @@
     "contentful-management": "10.32.0",
     "contentful-typescript-codegen": "3.4.0",
     "eslint": "8.39.0",
-    "eslint-config-next": "13.3.1",
+    "eslint-config-next": "13.3.2",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-unused-imports": "2.0.0",
