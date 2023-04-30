@@ -2,7 +2,14 @@
   min-height: var(--profile-content-height);
   width: var(--profile-content-width);
   max-width: var(--profile-max-width);
-  background-color: var(--background-satoshi);
+}
+
+.wrapper-background-color-satoshi {
+  background-color: var(--profile-background-satoshi);
+}
+
+.wrapper-background-color-azusa {
+  background-color: var(--profile-background-azusa);
 }
 
 .inner {

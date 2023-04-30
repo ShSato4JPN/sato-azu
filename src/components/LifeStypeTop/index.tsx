@@ -23,8 +23,6 @@ function StroyTop(): JSX.Element {
     }, 1800);
   }, []);
 
-  console.log(data?.items.at(0)?.fields.data);
-
   const images = useMemo<ImagesData[]>(
     () =>
       data?.items

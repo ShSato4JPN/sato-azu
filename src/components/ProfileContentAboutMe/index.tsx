@@ -6,9 +6,12 @@ import { Oval } from "react-loader-spinner";
 import { ProfileUserContext } from "../Providers/ProfileUserProvider";
 import ScrollAnimation from "../ScrollAnimation";
 import styles from "./style.module.scss";
+import useDynamicStyles from "@/hooks/useDynamicStyles";
+import type { StylesTemplate } from "@/hooks/useDynamicStyles";
 import useRefImages from "@/hooks/useRefImages";
 import type { ProfileAboutMeData } from "@/types/data.d";
-import type { ImagesData } from "@/types/data.d";
+import type { ImagesData, SatoOrAzu } from "@/types/data.d";
+
 import "animate.css";
 
 export type ProfileAboutMeProps = {
@@ -16,11 +19,29 @@ export type ProfileAboutMeProps = {
   images: ImagesData[];
 };
 
+type StylesFormat = {
+  wrapper: string;
+};
+
+const stylesTemplate: StylesTemplate = {
+  wrapper: [
+    styles.wrapper,
+    [
+      styles["wrapper-background-color-azusa"],
+      styles["wrapper-background-color-satoshi"],
+    ],
+  ],
+};
+
 function ProfileContentAboutMe({
   data,
   images,
 }: ProfileAboutMeProps): JSX.Element {
   const name = useContext(ProfileUserContext);
+  const { refStyles } = useDynamicStyles<StylesFormat>(
+    name as SatoOrAzu,
+    stylesTemplate
+  );
   const { refImages, isProcessing } = useRefImages({
     content: "aboutme",
     images,
@@ -29,7 +50,7 @@ function ProfileContentAboutMe({
   const ovalColor = name === "azusa" ? "#0db678" : "#0d51b6";
 
   return (
-    <div className={styles.wrapper}>
+    <div className={refStyles.wrapper}>
       <div className={styles.inner}>
         <section className={styles.imageSection}>
           {isProcessing ? (
@@ -45,10 +66,10 @@ function ProfileContentAboutMe({
           ) : (
             <Image
               className={styles.profileImage}
-              src={refImages["aboutme-profile-image"].url}
+              src={refImages[`aboutme-${name}-image`].url}
               width={800}
               height={800}
-              alt={refImages["aboutme-profile-image"].description}
+              alt={refImages[`aboutme-${name}-image`].description}
             />
           )}
         </section>

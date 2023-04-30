@@ -2,19 +2,40 @@
 import { FaBuilding } from "@react-icons/all-files/fa/FaBuilding";
 import { FaSchool } from "@react-icons/all-files/fa/FaSchool";
 import { IoMdSchool } from "@react-icons/all-files/io/IoMdSchool";
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
+import { ProfileUserContext } from "../Providers/ProfileUserProvider";
 import styles from "./style.module.scss";
 import "react-vertical-timeline-component/style.min.css";
 import TimelineContent from "@/components/TimelineContent";
+import type { StylesTemplate } from "@/hooks/useDynamicStyles";
+import useDynamicStyles from "@/hooks/useDynamicStyles";
 import type { ProfileTimelineData } from "@/types/data";
-import type { Affiliation } from "@/types/data";
+import type { Affiliation, SatoOrAzu } from "@/types/data";
 
 export type ProfileTimelineProps = {
   data: ProfileTimelineData;
+};
+
+type StylesFormat = {
+  wrapper: string;
+};
+
+const stylesTemplate: StylesTemplate = {
+  wrapper: [
+    styles.wrapper,
+    [
+      styles["wrapper-background-color-azusa"],
+      styles["wrapper-background-color-satoshi"],
+    ],
+  ],
+};
+
+const getColor = (name: SatoOrAzu): string => {
+  return name === "satoshi" ? "#87ceeb" : "#87eb99";
 };
 
 const getIcon = (type: Affiliation): JSX.Element => {
@@ -28,11 +49,14 @@ const getIcon = (type: Affiliation): JSX.Element => {
   }
 };
 
-const getCocontentStyle = (type: Affiliation): React.CSSProperties => {
+const getCocontentStyle = (
+  type: Affiliation,
+  name: SatoOrAzu
+): React.CSSProperties => {
   switch (type) {
     case "school":
       return {
-        background: "#87ceeb",
+        background: getColor(name),
         color: "#fff",
         borderRadius: "10px",
       };
@@ -47,10 +71,13 @@ const getCocontentStyle = (type: Affiliation): React.CSSProperties => {
   }
 };
 
-const getContentArrowStyle = (type: Affiliation): React.CSSProperties => {
+const getContentArrowStyle = (
+  type: Affiliation,
+  name: SatoOrAzu
+): React.CSSProperties => {
   switch (type) {
     case "school":
-      return { borderRight: "7px solid #87ceeb" };
+      return { borderRight: `7px solid ${getColor(name)}` };
     case "university":
       return { borderRight: "7px solid #f7c568" };
     case "company":
@@ -58,10 +85,13 @@ const getContentArrowStyle = (type: Affiliation): React.CSSProperties => {
   }
 };
 
-const getIconStyle = (type: Affiliation): React.CSSProperties => {
+const getIconStyle = (
+  type: Affiliation,
+  name: SatoOrAzu
+): React.CSSProperties => {
   switch (type) {
     case "school":
-      return { background: "#87ceeb", color: "#fff" };
+      return { background: getColor(name), color: "#fff" };
     case "university":
       return { background: "#f7d668", color: "#fff" };
     case "company":
@@ -70,6 +100,12 @@ const getIconStyle = (type: Affiliation): React.CSSProperties => {
 };
 
 function ProfileContentTimeline({ data }: ProfileTimelineProps): JSX.Element {
+  const name = useContext(ProfileUserContext);
+  const { refStyles } = useDynamicStyles<StylesFormat>(
+    name as SatoOrAzu,
+    stylesTemplate
+  );
+
   const timelineElements = useMemo(
     () =>
       data.timeline.map((d) => {
@@ -77,10 +113,10 @@ function ProfileContentTimeline({ data }: ProfileTimelineProps): JSX.Element {
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
             dateClassName={styles.VerticalTimelineDate}
-            contentStyle={getCocontentStyle(d.type)}
-            contentArrowStyle={getContentArrowStyle(d.type)}
+            contentStyle={getCocontentStyle(d.type, name as SatoOrAzu)}
+            contentArrowStyle={getContentArrowStyle(d.type, name as SatoOrAzu)}
             date={`${d.start} - ${d.end}`}
-            iconStyle={getIconStyle(d.type)}
+            iconStyle={getIconStyle(d.type, name as SatoOrAzu)}
             icon={getIcon(d.type)}
             key={d.title}
           >
@@ -90,15 +126,15 @@ function ProfileContentTimeline({ data }: ProfileTimelineProps): JSX.Element {
           </VerticalTimelineElement>
         );
       }),
-    [data.timeline]
+    [data.timeline, name]
   );
 
   return (
-    <div className={styles.wrapper}>
+    <div className={refStyles.wrapper}>
       <div className={styles.inner}>
         <section className={styles.timelineSection}>
           <h1 className={styles.sectionTitle}>Timeline</h1>
-          <VerticalTimeline lineColor="skyblue">
+          <VerticalTimeline lineColor={getColor(name as SatoOrAzu)}>
             {timelineElements}
           </VerticalTimeline>
         </section>

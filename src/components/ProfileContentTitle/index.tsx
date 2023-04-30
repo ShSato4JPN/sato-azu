@@ -17,7 +17,10 @@ type StylesFormat = {
 const stylesTemplate: StylesTemplate = {
   wrapper: [
     styles.wrapper,
-    [styles["wrapper-color-azusa"], styles["wrapper-color-satoshi"]],
+    [
+      styles["wrapper-background-color-azusa"],
+      styles["wrapper-background-color-satoshi"],
+    ],
   ],
 };
 

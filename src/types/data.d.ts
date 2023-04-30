@@ -26,6 +26,8 @@ export type ProfileHobbyData = {
 
 export type Affiliation = "school" | "university" | "company";
 
+export type StoryType = "sato" | "azu" | "satoazu" | "marry";
+
 export type TimelineData = {
   title: string;
   start: string;
@@ -69,3 +71,11 @@ export type ImagesData = {
     height: number;
   };
 };
+
+export type StoryItem = {
+  type: StoryType;
+  title: string;
+  description: string;
+};
+
+export type StoryData = StoryItem[];

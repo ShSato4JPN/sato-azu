@@ -1,8 +1,15 @@
 .wrapper {
   width: var(--profile-content-width);
   max-width: var(--profile-max-width);
-  background-color: rgb(36 149 241 / 58%);
   color: black;
+}
+
+.wrapper-background-color-satoshi {
+  background-color: var(--profile-background-satoshi);
+}
+
+.wrapper-background-color-azusa {
+  background-color: var(--profile-background-azusa);
 }
 
 .inner {

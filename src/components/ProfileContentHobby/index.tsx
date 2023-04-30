@@ -1,23 +1,46 @@
 "use client";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
 import ReactMarkdown from "react-markdown";
+import { ProfileUserContext } from "../Providers/ProfileUserProvider";
 import ScrollAnimation from "../ScrollAnimation";
 import styles from "./style.module.scss";
+import type { StylesTemplate } from "@/hooks/useDynamicStyles";
+import useDynamicStyles from "@/hooks/useDynamicStyles";
 import useRefImages from "@/hooks/useRefImages";
-import type { ProfileHobbyData, ImagesData } from "@/types/data";
+import type { ProfileHobbyData, ImagesData, SatoOrAzu } from "@/types/data";
 
 export type ProfileHobbyProps = {
   data: ProfileHobbyData;
   images: ImagesData[];
 };
 
+type StylesFormat = {
+  wrapper: string;
+};
+
+const stylesTemplate: StylesTemplate = {
+  wrapper: [
+    styles.wrapper,
+    [
+      styles["wrapper-background-color-azusa"],
+      styles["wrapper-background-color-satoshi"],
+    ],
+  ],
+};
+
 function ProfileHobby({ data, images }: ProfileHobbyProps): JSX.Element {
-  //const name = useContext(ProfileUserContext);
+  const name = useContext(ProfileUserContext);
+  const { refStyles } = useDynamicStyles<StylesFormat>(
+    name as SatoOrAzu,
+    stylesTemplate
+  );
   const { refImages } = useRefImages({
     content: "hobby",
     images,
   });
+
+  console.dir(refImages);
 
   const hobbyContents = useMemo<JSX.Element[]>(
     () =>
@@ -57,7 +80,7 @@ function ProfileHobby({ data, images }: ProfileHobbyProps): JSX.Element {
   );
 
   return (
-    <div className={styles.wrapper}>
+    <div className={refStyles.wrapper}>
       <div className={styles.inner}>
         <section className={styles.hobbiesSection}>
           <h1 className={styles.sectionTitle}>Hobbies</h1>

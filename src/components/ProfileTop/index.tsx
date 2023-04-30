@@ -36,8 +36,6 @@ function ProfileTop({ name }: ProfileTopProps): JSX.Element {
     [data?.items, name]
   );
 
-  console.dir(profile);
-
   const images = useMemo<ImagesData[]>(
     () =>
       data?.items
