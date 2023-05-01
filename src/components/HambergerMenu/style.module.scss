@@ -1,0 +1,39 @@
+.wrapper {
+  position: absolute;
+  opacity: 1;
+  border-radius: 15px;
+  z-index: 2;
+  background-color: #f3f5f594;
+  margin: 5px;
+}
+
+.wrapper-background-color-satoshi {
+  background-color: var(--profile-background-satoshi);
+}
+
+.wrapper-background-color-azusa {
+  background-color: var(--profile-background-azusa);
+}
+
+.menu {
+  width: 100vw;
+  height: calc(100vh - 45px);
+}
+
+.menuList {
+  padding: 20px;
+  list-style: none;
+}
+
+.menuList li {
+  background-color: orange;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  font-size: 2rem;
+  line-height: 3;
+  text-align: center;
+
+  &:hover {
+    background-color: gold;
+  }
+}

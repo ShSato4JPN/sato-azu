@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import useSWR from "swr";
 import AnimationContainer from "../AnimationContainer";
+import HambergerMenu from "../HambergerMenu";
 import LoadingAnimation from "../LoadingAnimation";
 import MotionContainer from "../MotionContainer";
 import styles from "./style.module.scss";
@@ -96,6 +97,9 @@ function StroyTop(): JSX.Element {
       ) : (
         <MotionContainer>
           <AnimationContainer>
+            <header className={styles.header}>
+              <HambergerMenu />
+            </header>
             <main className={styles.mainContainer}>
               <div className={styles.wrapper}>
                 <div className={styles.inner}>{shops}</div>

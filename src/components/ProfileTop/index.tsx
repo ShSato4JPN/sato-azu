@@ -2,6 +2,7 @@
 import { useMemo, useState, useEffect } from "react";
 import useSWR from "swr";
 import AnimationContainer from "../AnimationContainer";
+import HambergerMenu from "../HambergerMenu";
 import LoadingAnimation from "../LoadingAnimation";
 import MotionContainer from "../MotionContainer";
 import ProfileContentMessage from "../ProfileContentMessage";
@@ -61,6 +62,9 @@ function ProfileTop({ name }: ProfileTopProps): JSX.Element {
       ) : (
         <MotionContainer>
           <AnimationContainer>
+            <header className={styles.header}>
+              <HambergerMenu />
+            </header>
             <main className={styles.mainContainer}>
               <div className={styles.screenBlockContainer}>
                 <ProfileContentTitle data={profile.profileTitle} />

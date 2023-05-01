@@ -10,6 +10,7 @@ import {
 } from "react-vertical-timeline-component";
 import useSWR from "swr";
 import AnimationContainer from "../AnimationContainer";
+import HambergerMenu from "../HambergerMenu";
 import LoadingAnimation from "../LoadingAnimation";
 import MotionContainer from "../MotionContainer";
 import TimelineContent from "../TimelineContent";
@@ -133,6 +134,9 @@ function Story(): JSX.Element {
       ) : (
         <MotionContainer>
           <AnimationContainer>
+            <header className={styles.header}>
+              <HambergerMenu />
+            </header>
             <main className={styles.mainContainer}>
               <div className={styles.screenBlockContainer}>
                 <div className={styles.wrapper}>
