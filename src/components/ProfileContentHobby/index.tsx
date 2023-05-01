@@ -50,7 +50,7 @@ function ProfileHobby({ data, images }: ProfileHobbyProps): JSX.Element {
           const image = refImages[k];
           return (
             <ScrollAnimation
-              height={{ height: "550px" }}
+              height={{ height: "580px" }}
               direction={i % 2 === 0 ? "right" : "left"}
               rootMargin={"-80px"}
               triggerOnce={true}

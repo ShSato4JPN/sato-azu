@@ -44,7 +44,11 @@ const getCocontentStyle = (type: StoryType): React.CSSProperties => {
         borderRadius: "10px",
       };
     case "satoazu":
-      return { background: "#f78f69", color: "#fff", borderRadius: "10px" };
+      return {
+        background: "linear-gradient(90deg, #87ceeb, #87eb99)",
+        color: "#fff",
+        borderRadius: "10px",
+      };
     case "marry":
       return {
         background: "#f7d668",
@@ -61,7 +65,9 @@ const getContentArrowStyle = (type: StoryType): React.CSSProperties => {
     case "sato":
       return { borderRight: "7px solid #87ceeb" };
     case "satoazu":
-      return { borderRight: "7px solid #f78f69" };
+      return {
+        borderRight: "7px solid white",
+      };
     case "marry":
       return { borderRight: "7px solid #f7c568" };
   }
@@ -74,7 +80,10 @@ const getIconStyle = (type: StoryType): React.CSSProperties => {
     case "sato":
       return { background: "#87ceeb", color: "#fff" };
     case "satoazu":
-      return { background: "#f1a67e", color: "#fff" };
+      return {
+        background: "linear-gradient(90deg, #87ceeb, #87eb99)",
+        color: "#fff",
+      };
     case "marry":
       return { background: "#f7d668", color: "#fff" };
   }
@@ -129,7 +138,7 @@ function Story(): JSX.Element {
                 <div className={styles.wrapper}>
                   <div className={styles.inner}>
                     <section className={styles.timelineSection}>
-                      <VerticalTimeline lineColor="linear-gradient(#f1a67e, #f7d668)">
+                      <VerticalTimeline lineColor="linear-gradient(90deg, #87ceeb, #87eb99)">
                         {timelineElements}
                       </VerticalTimeline>
                     </section>
