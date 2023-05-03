@@ -45,25 +45,37 @@ function StroyTop(): JSX.Element {
     const shopsInfo: ShopsInfomation = {
       jj: {
         name: "平和小路酒場JJ",
+        ruby: "へいわこうじさかば　　",
         map: "https://www.google.com/maps/embed/v1/place?q=%E5%B9%B3%E5%92%8C%E5%B0%8F%E8%B7%AF%E9%85%92%E5%A0%B4%EF%BC%AA%EF%BC%AA&key=AIzaSyALtqJNpW2ZOiGikpdn_m_MLP6JotXBJNY",
       },
       "new-eight": {
         name: "ニューエイト",
+        ruby: "",
         map: "https://www.google.com/maps/embed/v1/place?q=%E8%92%B2%E7%94%B0%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%A8%E3%82%A4%E3%83%88&key=AIzaSyALtqJNpW2ZOiGikpdn_m_MLP6JotXBJNY",
       },
       menderu: {
         name: "麺でる",
+        ruby: "めん　　　",
         map: "https://www.google.com/maps/embed/v1/place?q=%E3%83%A1%E3%83%B3%E3%83%87%E3%83%AB%E3%80%80%E6%88%B8%E8%B6%8A%E5%85%AC%E5%9C%92&key=AIzaSyALtqJNpW2ZOiGikpdn_m_MLP6JotXBJNY",
       },
     };
 
     return images.map((d) => {
       const shopName = shopsInfo[d.title].name;
+      const shopRuby = shopsInfo[d.title].ruby;
       const shopMap = shopsInfo[d.title].map;
+
+      console.log(shopRuby);
+
       return (
         <div className={styles.shopContent} key={shopName}>
           <div className={styles.shopDetails}>
-            <h1 className={styles.shopName}>{shopName}</h1>
+            <h1 className={styles.shopName}>
+              <ruby>
+                {shopName}
+                <rt>{shopRuby}</rt>
+              </ruby>
+            </h1>
             <div className={styles.imageContent}>
               <div className={styles.shopImage}>
                 <Image

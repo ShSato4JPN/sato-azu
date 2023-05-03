@@ -57,6 +57,7 @@ export type ProfileData = {
 export type ShopsInfomation = {
   [key: string]: {
     name: string;
+    ruby: string;
     map: string;
   };
 };
