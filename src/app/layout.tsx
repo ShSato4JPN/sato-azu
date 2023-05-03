@@ -4,6 +4,12 @@ import localFont from "@next/font/local";
 export const metadata = {
   title: "azusa x satoshi",
   description: "azusa x satoshi",
+  openGraph: {
+    title: "azusa x satoshi",
+    description: "梓と智士の自己紹介ページ",
+    siteName: "azusa x satoshi",
+    images: "/tokyo.png",
+  },
 };
 
 const notoSansJP = localFont({
