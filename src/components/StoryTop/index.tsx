@@ -145,7 +145,7 @@ function Story(): JSX.Element {
                       梓と智士の馴れ初めを簡単にまとめました。
                       <br />
                       <br />
-                      実は中学生の頃に同じ会場で試合をしていたりと運命的な出会いを果たしております(笑)
+                      実は中学生の頃に同じ会場で試合をしていたりと運命的な出会いを果たしております。
                     </div>
                     <section className={styles.timelineSection}>
                       <VerticalTimeline lineColor="linear-gradient(90deg, #87ceeb, #87eb99)">
