@@ -5,6 +5,14 @@
   z-index: 1;
 }
 
+.mainContainer-background-color-azusa {
+  background-color: var(--profile-background-azusa);
+}
+
+.mainContainer-background-color-satoshi {
+  background-color: var(--profile-background-satoshi);
+}
+
 .screenBlockContainer {
   display: flex;
   justify-content: center;

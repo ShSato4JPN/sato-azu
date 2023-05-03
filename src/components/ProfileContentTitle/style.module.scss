@@ -4,11 +4,11 @@
 }
 
 .wrapper-background-color-satoshi {
-  background-color: #00e1ffb3;
+  background-color: var(--profile-background-satoshi);
 }
 
 .wrapper-background-color-azusa {
-  background-color: #00ff80b3;
+  background-color: var(--profile-background-azusa);
 }
 
 .inner {

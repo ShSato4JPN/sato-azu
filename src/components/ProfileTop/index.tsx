@@ -13,6 +13,8 @@ import ProfileContentAboutMe from "@/components/ProfileContentAboutMe";
 import ProfileContentHobby from "@/components/ProfileContentHobby";
 import ProfileContentTitle from "@/components/ProfileContentTitle";
 import ProfileUserProvider from "@/components/Providers/ProfileUserProvider";
+import useDynamicStyles from "@/hooks/useDynamicStyles";
+import type { StylesTemplate } from "@/hooks/useDynamicStyles";
 import { endpointProfile } from "@/libs/endpoinsts";
 import type { ProfileData, ImagesData, SatoOrAzu } from "@/types/data";
 
@@ -20,9 +22,26 @@ type ProfileTopProps = {
   name: SatoOrAzu;
 };
 
+type StylesFormat = {
+  mainContainer: string;
+};
+
+const stylesTemplate: StylesTemplate = {
+  mainContainer: [
+    styles.mainContainer,
+    [
+      styles["mainContainer-background-color-azusa"],
+      styles["mainContainer-background-color-satoshi"],
+    ],
+  ],
+};
+
 function ProfileTop({ name }: ProfileTopProps): JSX.Element {
   const { data } = useSWR<GetContentsData>(endpointProfile);
-  //const { refStyles } = useRefStyles<StylesType>(name, stylesTemplate);
+  const { refStyles } = useDynamicStyles<StylesFormat>(
+    name as SatoOrAzu,
+    stylesTemplate
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -65,7 +84,7 @@ function ProfileTop({ name }: ProfileTopProps): JSX.Element {
             <header className={styles.header}>
               <HambergerMenu />
             </header>
-            <main className={styles.mainContainer}>
+            <main className={refStyles.mainContainer}>
               <div className={styles.screenBlockContainer}>
                 <ProfileContentTitle data={profile.profileTitle} />
               </div>
