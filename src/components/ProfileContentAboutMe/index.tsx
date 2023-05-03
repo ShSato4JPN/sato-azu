@@ -11,7 +11,6 @@ import type { StylesTemplate } from "@/hooks/useDynamicStyles";
 import useRefImages from "@/hooks/useRefImages";
 import type { ProfileAboutMeData } from "@/types/data.d";
 import type { ImagesData, SatoOrAzu } from "@/types/data.d";
-
 import "animate.css";
 
 export type ProfileAboutMeProps = {

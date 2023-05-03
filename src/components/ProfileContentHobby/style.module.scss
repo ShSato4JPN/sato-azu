@@ -1,7 +1,7 @@
 .wrapper {
   width: var(--profile-content-width);
   max-width: var(--profile-max-width);
-  color: black;
+  color: var(--font-color);
 }
 
 .wrapper-background-color-satoshi {
@@ -24,7 +24,7 @@
   font-size: 4rem;
   line-height: 50px;
   text-align: center;
-  color: white;
+  color: #fff;
 }
 
 .contents {
@@ -45,7 +45,7 @@
 .hobbyCard {
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+  box-shadow: 0 4px 10px #0000001a;
   background-color: var(--content-background-color);
   overflow: hidden;
   border-radius: 3%;

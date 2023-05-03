@@ -1,7 +1,7 @@
 .wrapper {
   width: var(--profile-content-width);
   max-width: var(--profile-max-width);
-  color: black;
+  color: var(--font-color);
 }
 
 .wrapper-background-color-satoshi {
@@ -24,13 +24,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  margin: 20px 10px 10px;
 }
 
 .profileImage {
   border-radius: 50%;
-  border: 5px solid rgb(255 255 255);
-  box-shadow: 0 4px 10px rgb(0 0 0 / 26%);
+  border: 5px solid #fff;
+  box-shadow: 0 4px 10px #00000042;
   width: 180px;
   height: 180px;
   margin-bottom: 20px;
@@ -46,7 +46,7 @@
   font-size: 4rem;
   line-height: 50px;
   text-align: center;
-  color: white;
+  color: #fff;
 }
 
 .detailSection {
@@ -62,7 +62,7 @@
   margin: 10px;
   font-size: 2rem;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 26%);
+  box-shadow: 0 4px 10px #00000042;
   background-color: var(--content-background-color);
   padding: 10px;
 }

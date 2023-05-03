@@ -39,17 +39,17 @@ function HambergerMenu(): JSX.Element {
             <Link href="/">
               <li>TOP</li>
             </Link>
-            <Link href="/lifestyle">
-              <li>LIFE STYLE</li>
-            </Link>
-            <Link href="/story">
-              <li>STORY</li>
-            </Link>
             <Link href="/profile/azusa">
               <li>AZUSA</li>
             </Link>
             <Link href="/profile/satoshi">
               <li>SATOSHI</li>
+            </Link>
+            <Link href="/story">
+              <li>STORY</li>
+            </Link>
+            <Link href="/lifestyle">
+              <li>LIFE STYLE</li>
             </Link>
           </ul>
         </div>

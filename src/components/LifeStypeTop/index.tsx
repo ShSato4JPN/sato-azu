@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect, useMemo } from "react";
-import { Fragment } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import useSWR from "swr";
 import AnimationContainer from "../AnimationContainer";
