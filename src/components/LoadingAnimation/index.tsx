@@ -5,7 +5,7 @@ function LoadingAnimation() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.loading}>
-        <SyncLoader color="#FFF200" />
+        <SyncLoader speedMultiplier={0.7} color="#FFF200" />
       </div>
     </div>
   );

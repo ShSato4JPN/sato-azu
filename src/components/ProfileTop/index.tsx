@@ -48,7 +48,7 @@ function ProfileTop({ name }: ProfileTopProps): JSX.Element {
     // 画面のチラツキをなくすためローディング画面を表示させる。
     setTimeout(() => {
       setIsLoading(false);
-    }, 1800);
+    }, 2000);
   }, []);
 
   const profile = useMemo<ProfileData>(
