@@ -48,7 +48,7 @@
     "framer-motion": "10.16.4",
     "husky": "8.0.3",
     "i": "0.3.7",
-    "lint-staged": "13.3.0",
+    "lint-staged": "14.0.1",
     "npm": "9.8.1",
     "prettier": "2.8.8",
     "react-loader-spinner": "5.4.5",
