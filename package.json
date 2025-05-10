@@ -42,7 +42,7 @@
     "contentful-typescript-codegen": "3.4.0",
     "eslint": "8.57.1",
     "eslint-config-next": "13.5.11",
-    "eslint-config-prettier": "8.10.0",
+    "eslint-config-prettier": "10.1.5",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-unused-imports": "2.0.0",
     "framer-motion": "10.18.0",
