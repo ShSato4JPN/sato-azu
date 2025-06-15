@@ -38,7 +38,7 @@
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "contentful": "9.3.7",
-    "contentful-management": "10.46.4",
+    "contentful-management": "11.53.0",
     "contentful-typescript-codegen": "3.4.0",
     "eslint": "8.57.1",
     "eslint-config-next": "13.5.11",
